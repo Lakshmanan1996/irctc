@@ -1,6 +1,7 @@
 FROM node:18-alpine
 WORKDIR /app
-COPY . .
+COPY package*.json ./
 RUN npm install
-
-CMD ["sh", "-c", "npm run test || true && sleep infinity"]
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
